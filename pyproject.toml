@@ -1,0 +1,15 @@
+[project]
+name = "product-advisor-agent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "colorama>=0.4.6",
+    "langchain>=1.4.1",
+    "langchain-google-genai>=4.4.0",
+    "langgraph-cli[inmem]>=0.4.31",
+    "python-dotenv>=1.2.3",
+    "start>=0.2",
+    "state>=0.1.1.dev0",
+]

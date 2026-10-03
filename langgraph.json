@@ -1,0 +1,8 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "product_advisor": "./graph.py:graph"
+  },
+  "env": ".env"
+}
+
