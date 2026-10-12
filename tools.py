@@ -26,7 +26,7 @@ def get_all_products() -> str:
         Normal skin; Dry skin; Combination skin
     """
 
-    with open("data/products.json", "r", encoding="utf-8") as file:
+    with open("data/product.json", "r", encoding="utf-8") as file:
         data = json.load(file)
 
     products = data["products"]

@@ -1,8 +1,4 @@
-from langgraph.graph import (
-    START,
-    END,
-    StateGraph
-)
+from langgraph.graph import START, END, StateGraph
 from langgraph.prebuilt import tools_condition
 
 from state import AdvisorState
@@ -11,13 +7,14 @@ from nodes import (
     assistant,
     get_tool_node,
     capture_customer_info,
-    all_tools
+    all_tools,
 )
 
 
-def create_graph():
+def create_graph(checkpointer=None):
     """
     Create and compile the Product Advisor Agent graph.
+    Supports optional conversation memory.
     """
 
     state_graph = StateGraph(AdvisorState)
@@ -31,13 +28,13 @@ def create_graph():
 
     state_graph.add_conditional_edges(
         "assistant",
-        tools_condition
+        tools_condition,
     )
 
     state_graph.add_edge("tools", "assistant")
 
-    # Compile the graph
-    return state_graph.compile()
+    # Compile with or without memory
+    return state_graph.compile(checkpointer=checkpointer)
 
 
 # Export the compiled graph for LangGraph CLI
